@@ -16,9 +16,20 @@ export default function Header() {
               <p className="text-xs text-neutral-500 dark:text-neutral-400 -mt-1">Create gorgeous link-in-bio pages</p>
             </div>
           </div>
-          <div className="hidden sm:flex items-center gap-2 text-sm text-neutral-600 dark:text-neutral-300">
-            <Sparkles className="h-4 w-4 text-yellow-500" />
-            <span>Luxury design • Zero code</span>
+
+          <div className="flex items-center gap-2">
+            <div className="hidden sm:flex items-center gap-2 text-sm text-neutral-600 dark:text-neutral-300">
+              <Sparkles className="h-4 w-4 text-yellow-500" />
+              <span>Luxury design • Zero code</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <a href="#login" className="inline-flex items-center px-3 py-1.5 text-sm font-medium rounded-lg border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5">
+                Login
+              </a>
+              <a href="#register" className="inline-flex items-center px-3 py-1.5 text-sm font-medium rounded-lg bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90">
+                Register
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -40,6 +51,14 @@ export default function Header() {
             <p className="mt-3 text-neutral-600 dark:text-neutral-300 text-sm sm:text-base">
               Build a beautiful link-in-bio page with themes, custom buttons, and a live preview. Save, export, and share instantly.
             </p>
+            <div className="mt-6 flex items-center gap-3">
+              <a href="#register" className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90">
+                Get started free
+              </a>
+              <a href="#login" className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5">
+                I already have an account
+              </a>
+            </div>
           </div>
         </div>
       </div>
