@@ -1,7 +1,7 @@
-import { Plus, Trash2, Save, FileDown, RefreshCw } from "lucide-react";
+import { Plus, Trash2, Save, FileDown, RefreshCw, ArrowUp, ArrowDown } from "lucide-react";
 import { useState } from "react";
 
-export default function BioEditor({ profile, links, onChange, onAddLink, onUpdateLink, onRemoveLink, onSave, onReset, onExport, savedBios, onSelectSaved, onDeleteSaved }) {
+export default function BioEditor({ profile, links, onChange, onAddLink, onUpdateLink, onRemoveLink, onMoveLink, onSave, onReset, onExport, savedBios, onSelectSaved, onDeleteSaved }) {
   const [localProfile, setLocalProfile] = useState(profile);
 
   // Keep local state in sync if outer profile changes
@@ -75,15 +75,31 @@ export default function BioEditor({ profile, links, onChange, onAddLink, onUpdat
                 value={link.url}
                 onChange={(e) => onUpdateLink(idx, "url", e.target.value)}
                 placeholder="https://"
-                className="sm:col-span-7 rounded-lg border border-black/10 dark:border-white/10 bg-white/80 dark:bg-neutral-950 px-3 py-2 outline-none focus:ring-2 focus:ring-black/10 dark:focus:ring-white/20"
+                className="sm:col-span-6 rounded-lg border border-black/10 dark:border-white/10 bg-white/80 dark:bg-neutral-950 px-3 py-2 outline-none focus:ring-2 focus:ring-black/10 dark:focus:ring-white/20"
               />
-              <button
-                onClick={() => onRemoveLink(idx)}
-                className="sm:col-span-1 inline-flex items-center justify-center rounded-lg border border-black/10 dark:border-white/10 px-3 py-2 hover:bg-black/5 dark:hover:bg-white/5"
-                aria-label="Remove link"
-              >
-                <Trash2 className="h-4 w-4" />
-              </button>
+              <div className="sm:col-span-2 flex items-center gap-2">
+                <button
+                  onClick={() => onMoveLink(idx, -1)}
+                  className="inline-flex items-center justify-center rounded-lg border border-black/10 dark:border-white/10 px-2.5 py-2 hover:bg-black/5 dark:hover:bg-white/5"
+                  aria-label="Move up"
+                >
+                  <ArrowUp className="h-4 w-4" />
+                </button>
+                <button
+                  onClick={() => onMoveLink(idx, 1)}
+                  className="inline-flex items-center justify-center rounded-lg border border-black/10 dark:border-white/10 px-2.5 py-2 hover:bg-black/5 dark:hover:bg-white/5"
+                  aria-label="Move down"
+                >
+                  <ArrowDown className="h-4 w-4" />
+                </button>
+                <button
+                  onClick={() => onRemoveLink(idx)}
+                  className="inline-flex items-center justify-center rounded-lg border border-black/10 dark:border-white/10 px-2.5 py-2 hover:bg-black/5 dark:hover:bg-white/5"
+                  aria-label="Remove link"
+                >
+                  <Trash2 className="h-4 w-4" />
+                </button>
+              </div>
             </div>
           ))}
         </div>
